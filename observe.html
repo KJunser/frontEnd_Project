@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우주 관측</title>
+	<link rel="shortcut icon" href="imgs/zenith.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/common.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+
+            <a href="index.html" class="logo"></a>
+
+            <a href="" id="trigger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+            <ul id="main-menu">
+                <li>
+                    <a href="observe.html">우주 관측</a>
+                    <ul class="sub-menu">
+                        <li><a href="observe.html">대표은하</a></li>
+                        <li><a href="">주요특징</a></li>
+                        <li><a href="">관측주기</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="exploration.html">우주 체험</a>
+                    <ul class="sub-menu">
+                        <li><a href="exploration.html">장비체험</a></li>
+                        <li><a href="">훈련체험</a></li>
+                        <li><a href="">체험규칙</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="">함께하기</a>
+                    <ul class="sub-menu">
+                        <li><a href="">예약하기</a></li>
+                        <li><a href="">예약현황</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="">커뮤니티</a>
+                    <ul class="sub-menu">
+                        <li><a href="">체험후기</a></li>
+                        <li><a href="">공지사항</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="top-menu">
+                <li><a href=""><span>로그인</span><i class="bi bi-person-check-fill"></i></a></li>
+                <li><a href=""><span>회원가입</span><i class="bi bi-person-plus-fill"></i></a></li>
+            </ul>
+            
+        </nav>
+    </header>
+    
+	
+	
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+	<link rel="stylesheet" href="plugin/flexslider/flexslider.css">
+	<link rel="stylesheet" href="css/observe.css">
+	
+	<script src="plugin/flexslider/jquery.flexslider.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="js/ob-custom.js"></script>
+    <script>
+        //flexslider(overview 탭바 슬라이드 주 속성 변경)
+        $(function(){
+            $('.flexslider').flexslider({
+                slideshow: true,
+                directionNav: false,
+                controlNav: false,
+                pauseOnHover: true,
+                slideshowSpeed: 5000,
+                animationSpeed: 800
+            });
+            
+            var swiper = new Swiper(".mySwiper", {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                breakpoints: {
+                    760: {
+                        slidesPerView: 2,
+                        spaceBetween: 40,
+                    },
+                    1200: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    },
+                    1550: {
+                        slidesPerView: 4,
+                        spaceBetween: 30,
+                    }
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    type: "custom",
+                    renderCustom: function (swiper, current, total) {
+                        var activeBullet = swiper.realIndex % 4;
+                        var bulletsHtml = "";
+                        
+                        for (var i = 0; i < 4; i++) {
+                            if (i === activeBullet) {
+                                bulletsHtml += '<span class="swiper-pagination-bullet swiper-pagination-bullet-active" data-index="' + i + '"></span>';
+                            } else {
+                                bulletsHtml += '<span class="swiper-pagination-bullet" data-index="' + i + '"></span>';
+                            }
+                        }
+                        return bulletsHtml;
+                    }
+                },
+                on: {
+                    init: function () {
+                        var swiperInstance = this;
+                        var paginationEl = document.querySelector(".swiper-pagination");
+                        
+                        if (paginationEl) {
+                            paginationEl.addEventListener("click", function (e) {
+                                if (e.target.classList.contains("swiper-pagination-bullet")) {
+                                    var targetIndex = parseInt(e.target.getAttribute("data-index"));
+                                    var currentReal = swiperInstance.realIndex;
+                                    var set1 = targetIndex;
+                                    var set2 = targetIndex + 4;
+                                    
+                                    var finalTarget = Math.abs(set1 - currentReal) <= Math.abs(set2 - currentReal) ? set1 : set2;
+                                    
+                                    swiperInstance.slideToLoop(finalTarget);
+                                }
+                            });
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+	
+    
+    <ul class="ob-navbar">
+        <li><a href="#1st" title="소개">소개</a></li>
+        <li><a href="#2nd">둘러보기</a></li>
+        <li><a href="#3rd">주의사항</a></li>
+    </ul>
+    
+    <div class="bn">
+        <div class="ob-bn-bg"></div>
+        <div class="bn-cts">
+            <h1><span>o</span>bser<span>v</span>ation</h1>
+            <p>한 눈에 보는 우리 주변의 우주</p>
+        </div>
+    </div>
+	
+	<div id="1st" class="sub-title">
+		<h2><span>i</span>ntroduce</h2>
+		<p>우주를 향한 호기심, 그 첫번째 페이지</p>
+	</div>
+    
+    <div class="ob-in-container">
+        <div class="ob-in-bg1"></div>
+        <div class="ob-in-bg2"></div>
+        <div class="ob-in-cts">
+            <h3>심우주로의 여정</h3>
+            <p>거대한 우주 너머로 펼쳐지는 미지의 성운과 은하, 그 경이로운 모습을 직접 확인하며 우주의 신비를 탐험할 시간입니다</p>
+            <p>우주 너머로 펼쳐지는 신비를 직접 확인하며 탐험할 시간입니다</p>
+            <a href="" class="ob-btn ob-in-btn">more</a>
+        </div>
+        <div class="ob-in-cts-cd-wrap">
+            <div class="ob-in-cts-cd1"></div>
+            <div class="ob-in-cts-cd2"></div>
+        </div>
+    </div>
+
+    <div id="2nd" class="sub-title">
+        <h2><span>o</span>verview</h2>
+        <p>한 눈에 담는 경이로운 우주의 풍경</p>
+    </div>
+
+    <section>
+        <div class="ob-ov-container">
+            <div class="ob-ov-wrap">
+                <div class="ob-ov-tabs">
+                    <input id="tab-1" type="radio" name="tabBtn" class="tab-selector-1" checked>
+                    <label for="tab-1" class="tab-label-1">갤럭시</label>
+                    <input id="tab-2" type="radio" name="tabBtn" class="tab-selector-2">
+                    <label for="tab-2" class="tab-label-2">클러스터</label>
+                    <input id="tab-3" type="radio" name="tabBtn" class="tab-selector-3">
+                    <label for="tab-3" class="tab-label-3">네뷸라</label>
+                    
+                    <div class="ob-ov-tabs-cts">
+                        <div class="ob-ov-tabs-flex ob-ov-tabs-cts1">
+                            <div class="flexslider">
+                                <ul class="slides ob-ov-tabs-bg">
+                                    <li><div class="ob-tabs-bg ob-ov-tabs-bg1"></div></li>
+                                    <li><div class="ob-tabs-bg ob-ov-tabs-bg2"></div></li>
+                                    <li><div class="ob-tabs-bg ob-ov-tabs-bg3"></div></li>
+                                </ul>
+                            </div>
+                            <div class="ob-ov-tabs-txt">
+                                <h3>갤럭시</h3>
+                                <p>은하는 항성, 밀집성, 성간 물질, 암흑 물질 등이 중력에 의해 묶여 형성된 거대한 천체의 무리 입니다.</p>
+                                <div class="ob-ov-tabs-txt-cd1">
+                                    <ul class="ob-ov-tabs-txt1">
+                                        <li>어원</li>
+                                        <li>내부</li>
+                                        <li>형태</li>
+                                    </ul>
+                                    <a href="" class="ob-btn ob-tab-btn">more</a>
+                                    <div class="ob-ov-tabs-txt-cd2">
+                                        <ul class="ob-ov-tabs-txt2">
+                                            <li>은하수를 의미하는 'Galaxias'</li>
+                                            <li>수 많은 성단과 성운</li>
+                                            <li>타원형, 나선형, 불규칙형</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a href="" class="ob-btn ob-tab-btn2">자세히 보기</a>
+                            </div>
+                        </div>
+
+                    <div class="ob-ov-tabs-flex ob-ov-tabs-cts2">
+                            <div class="flexslider">
+                                <ul class="slides ob-ov-tabs-bg">
+                                    <li><div class="ob-tabs-bg ob-ov-tabs-bg4"></div></li>
+                                    <li><div class="ob-tabs-bg ob-ov-tabs-bg5"></div></li>
+                                    <li><div class="ob-tabs-bg ob-ov-tabs-bg6"></div></li>
+                                </ul>
+                            </div>
+                            <div class="ob-ov-tabs-txt">
+                                <h3>클러스터</h3>
+                                <p>성단은 중력으로 뭉쳐 있는 항성들의 무리이며 가장 작은 단위의 별들의 모임입니다.</p>
+                                <div class="ob-ov-tabs-txt-cd1">
+                                    <ul class="ob-ov-tabs-txt1">
+                                        <li>어원</li>
+                                        <li>내부</li>
+                                        <li>형태</li>
+                                    </ul>
+                                    <a href="" class="ob-btn ob-tab-btn">more</a>
+                                    <div class="ob-ov-tabs-txt-cd2">
+                                        <ul class="ob-ov-tabs-txt2">
+                                            <li>모여 있는 것이란 'Clyster'</li>
+                                            <li>수백~수십만의 별들</li>
+                                            <li>구상성단, 산개성단</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a href="" class="ob-btn ob-tab-btn2">자세히 보기</a>
+                            </div>
+                        </div>
+                        
+                        <div class="ob-ov-tabs-flex ob-ov-tabs-cts3">
+                            <div class="flexslider">
+                                <ul class="slides ob-ov-tabs-bg">
+                                    <li><div class="ob-tabs-bg ob-ov-tabs-bg7"></div></li>
+                                    <li><div class="ob-tabs-bg ob-ov-tabs-bg8"></div></li>
+                                    <li><div class="ob-tabs-bg ob-ov-tabs-bg9"></div></li>
+                                </ul>
+                            </div>
+                            <div class="ob-ov-tabs-txt">
+                                <h3>네뷸라</h3>
+                                <p>성운은 우주 공간에 분포한 성간물질이 비교적 좁은 지역에 밀집해 있는 것을 말합니다.</p>
+                                <div class="ob-ov-tabs-txt-cd1">
+                                    <ul class="ob-ov-tabs-txt1">
+                                        <li>어원</li>
+                                        <li>내부</li>
+                                        <li>형태</li>
+                                    </ul>
+                                    <a href="" class="ob-btn ob-tab-btn">more</a>
+                                    <div class="ob-ov-tabs-txt-cd2">
+                                        <ul class="ob-ov-tabs-txt2">
+                                            <li>안개, 증기란 뜻의 'Nebula'</li>
+                                            <li>주로 수소, 헬륨, 먼지 등</li>
+                                            <li>방출성운, 반사성운, 암흑성운</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a href="" class="ob-btn ob-tab-btn2">자세히 보기</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ob-ov-cts">
+                <p>거대한 은하의 소용돌이부터 별들의 요람인 성운까지 한 눈에 펼쳐지는 신비롭고 경이로운 천체들의 기록</p>
+            </div>
+        </div>
+    </section>
+    
+
+	<div class="ob-bn-bg2">
+		<h2><span>N</span>otification</h2>
+		<p>당신의 안전한 체험을 위한 가이드</p>
+	</div>
+	
+	<div id="3rd" class="sub-title">
+		<h2><span>p</span>recaution</h2>
+		<p>최상의 경험을 위한 우리들의 약속</p>
+	</div>
+	
+    <section>
+        <div class="swiper mySwiper ob-pr-cts">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide ob-pr-bg ob-pr-bg1">
+                    <h3>핸드폰 사용</h3>
+                    <p>섬세한 관측을 위해 전자기기의 사용을 자제해 주세요</p>
+                    <a href="" class="ob-pr-btn">자세히 보기</a>
+                </div>
+                <div class="swiper-slide ob-pr-bg ob-pr-bg2">
+                    <h3>소란과 난동</h3>
+                    <p>모두가 체험에 몰입할 수 있도록 정숙한 분위기를 유지해 주세요</p>
+                    <a href="" class="ob-pr-btn">자세히 보기</a>
+                </div>
+                <div class="swiper-slide ob-pr-bg ob-pr-bg3">
+                    <h3>음식물 반입</h3>
+                    <p>쾌적한 관측 환경 유지를 위해 음식물 반입이 제한됩니다</p>
+                    <a href="" class="ob-pr-btn">자세히 보기</a>
+                </div>
+                <div class="swiper-slide ob-pr-bg ob-pr-bg4">
+                    <h3>체험 대기열</h3>
+                    <p>원활한 체험을 위해 안내 요원의 지시에 따라 대기해 주세요</p>
+                    <a href="" class="ob-pr-btn">자세히 보기</a>
+                </div>
+                <div class="swiper-slide ob-pr-bg ob-pr-bg1">
+                    <h3>핸드폰 사용</h3>
+                    <p>섬세한 관측을 위해 전자기기의 사용을 자제해 주세요</p>
+                    <a href="" class="ob-pr-btn">자세히 보기</a>
+                </div>
+                <div class="swiper-slide ob-pr-bg ob-pr-bg2">
+                    <h3>소란과 난동</h3>
+                    <p>모두가 체험에 몰입할 수 있도록 정숙한 분위기를 유지해 주세요</p>
+                    <a href="" class="ob-pr-btn">자세히 보기</a>
+                </div>
+                <div class="swiper-slide ob-pr-bg ob-pr-bg3">
+                    <h3>음식물 반입</h3>
+                    <p>쾌적한 관측 환경 유지를 위해 음식물 반입이 제한됩니다</p>
+                    <a href="" class="ob-pr-btn">자세히 보기</a>
+                </div>
+                <div class="swiper-slide ob-pr-bg ob-pr-bg4">
+                    <h3>체험 대기열</h3>
+                    <p>원활한 체험을 위해 안내 요원의 지시에 따라 대기해 주세요</p>
+                    <a href="" class="ob-pr-btn">자세히 보기</a>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+	
+    <footer>
+        <div class="ft-wrap">
+            <ul class="ft-mmenu">
+                <li>
+                    <a href="">우주 관측</a>
+                    <ul class="ft-smenu">
+                        <li><a href="">대표은하</a></li>
+                        <li><a href="">주요특징</a></li>
+                        <li><a href="">관측주기</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="">우주 체험</a>
+                    <ul class="ft-smenu">
+                        <li><a href="">장비체험</a></li>
+                        <li><a href="">훈련체험</a></li>
+                        <li><a href="">체험규칙</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="">함께하기</a>
+                    <ul class="ft-smenu">
+                        <li><a href="">예약하기<i class="bi bi-box-arrow-up-right"></i></a></li>
+                        <li><a href="">예약현황<i class="bi bi-box-arrow-up-right"></i></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="">커뮤니티</a>
+                    <ul class="ft-smenu">
+                        <li><a href="">체험후기</a></li>
+                        <li><a href="">공지사항</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="ft-info">
+                <p>주소 : 경기도 용인시 기흥구 신구로12번길 32 씨케이솔루션빌딩 3층 <span>사업자등록번호: 000-00-00000</span><span>신고번호 2026-기흥역-0001호</span><span><a href="">[사업자정보확인]</a></span></p>
+            </div>
+            <div class="ft-bottom">
+                <div class="ft-copyright"><p>ⓒ 2026, ZENITH CO, All Rights Reserved.</p></div>
+                <ul class="ft-sns">
+                    <li><a href=""><i class="bi bi-threads"></i></a></li>
+                    <li><a href=""><i class="bi bi-youtube"></i></a></li>
+                    <li><a href=""><i class="bi bi-twitter-x"></i></a></li>
+                    <li><a href=""><i class="bi bi-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

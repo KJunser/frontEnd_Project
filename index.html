@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZENITH</title>
+    <link rel="shortcut icon" href="./imgs/main/ZENITH.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="./index.html" class="logo"></a>
+
+            <a href="" id="trigger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <i class="bi bi-rocket-takeoff"></i>
+            </a>
+		
+            <ul id="main-menu">
+                <li><a href="./observe.html">우주 관측</a></li>
+                <li><a href="./exploration.html">우주 체험</a></li>
+                <li><a href="">함께하기</a></li>
+                <li><a href="">커뮤니티</a></li>
+            </ul>
+            <ul class="top-menu">
+                <li><a href=""><span>로그인</span><i class="bi bi-person-check-fill"></i></a></li>
+                <li><a href=""><span>회원가입</span><i class="bi bi-person-plus-fill"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <link rel="stylesheet" href="plugin/fullPage/jquery.fullPage.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/index.css">
+    <script src="plugin/fullPage/jquery.fullPage.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/11390cb447.js" crossorigin="anonymous"></script>
+    <script src="js/index.js"></script>
+    <script>
+        $(function(){
+            $('section').fullpage({
+                menu: '#menu',
+                anchors: ['1st', '2nd', '3rd', '4th']
+            });
+
+            var swiper = new Swiper(".mySwiper", {
+                loop: true,
+                spaceBetween: 30,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                }
+            });
+            
+            
+        });
+    </script>
+
+    <section>
+        <div class="section ma-bg1 container">
+            <canvas class="constellation"></canvas>
+            <video autoplay muted preload loop playsinline id="ma-bg-video" src="video/ma-bn.mp4" type="video/mp4"></video>
+            <h2>
+                <svg viewBox="0 0 1000 300" preserveAspectRatio="xMidYMid meet">
+                    <text x="50%" y="35%" text-anchor="middle" class="line-text small">Welcome TO</text>
+                    <text x="50%" y="65%" text-anchor="middle" class="line-text large">ZENITH</text>
+                </svg>
+            </h2>
+
+            <div class="ma-sdi">
+                <i class="bi bi-mouse"></i>
+                <i class="fa-solid fa-arrow-down"></i>
+                <p>SCROLL<br>DOWN</p>
+            </div>
+        </div>
+
+
+        <div class="section ma-bg2 container"> <!--제이쿼리 풀페이지 섹션2-->
+            <canvas class="constellation"></canvas>
+            <div class="ma-sub-wrap"> <!--서브페이지 전체 감싸는 영역-->
+                <div class="ma-sub1-cts"> <!--텍스트 영역-->
+                    <h3><span>Sp</span>ace<br>Obser<span>V</span>ation</h3>
+                    <div class="ma-sub1-txt">
+                        <h4>우주 관측</h4>
+                        <img src="./imgs/main/fhd-sub1-bar.jpg" alt="바">
+                        <p>밤하늘을 아름답게 수놓은 별들은 어떤 모습일까요? <br> ZENITH의 첨단 관측 장비로 감상해보세요.</p>
+                    </div>
+                </div>
+
+                <div class="ma-sub1-pc">
+                    <div class="ma-sub1-cd ma-cd1"> <!--카드레이아웃-->
+                        <div class="ma-cd-wrap">
+                            <div class="ma-cd-bg"></div>
+                            <h4>성 단</h4>
+                            <a href="./observe.html#1st">MORE</a>
+                        </div>
+                        <p>중력으로 뭉쳐있는 항성들의 무리,<br>구상성단과 산개성단으로 나뉜다.</p>
+                        <div class="ma-cd-btn-wrap">
+                            <div class="ma-cd-btn"><a href="./observe.html"><i class="fa-solid fa-plus"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="ma-sub1-cd ma-cd2"> <!--카드레이아웃-->
+                        <div class="ma-cd-wrap">
+                            <div class="ma-cd-bg"></div>
+                            <h4>은하와 성운</h4>
+                            <a href="./observe.html#2nd">MORE</a>
+                        </div>
+                        <p>많은 별들이 모여있는 큰 천체,<br>그리고 그 안에 있는 별들의 모임.</p>
+                        <div class="ma-cd-btn-wrap">
+                            <div class="ma-cd-btn"><a href="./observe.html"><i class="fa-solid fa-plus"></i></a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper mySwiper"><!--스와이퍼-->
+                    <div class="swiper-wrapper">
+                        <div class="ma-sub1-cd ma-cd1 swiper-slide"> <!--카드레이아웃-->
+                            <div class="ma-cd-wrap">
+                                <div class="ma-cd-bg"></div>
+                                <h4>성 단</h4>
+                                <a href="./observe.html#1st">MORE</a>
+                            </div>
+                            <p>중력으로 뭉쳐있는 항성들의 무리,<br>구상성단과 산개성단으로 나뉜다.</p>
+                            <div class="ma-cd-btn-wrap">
+                                <div class="ma-cd-btn"><a href="./observe.html"><i class="fa-solid fa-plus"></i></a></div>
+                            </div>
+                        </div>
+                        <div class="ma-sub1-cd ma-cd2 swiper-slide"> <!--카드레이아웃-->
+                            <div class="ma-cd-wrap">
+                                <div class="ma-cd-bg"></div>
+                                <h4>은하와 성운</h4>
+                                <a href="./observe.html#2nd">MORE</a>
+                            </div>
+                            <p>많은 별들이 모여있는 큰 천체,<br>그리고 그 안에 있는 별들의 모임.</p>
+                            <div class="ma-cd-btn-wrap">
+                                <div class="ma-cd-btn"><a href="./observe.html"><i class="fa-solid fa-plus"></i></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div><!--스와이퍼끝-->
+            </div>
+        </div><!--섹션2끝-->
+
+        <div class="section ma-bg3 container"><!--제이쿼리 풀페이지 섹션3-->
+            <canvas class="constellation"></canvas>
+            <div class="ma-sub-wrap"><!--감싸는영역-->
+                <div class="ma-sub2-txt">
+                    <h3><span>S</span>pace <span>E</span>xpereince</h3>
+                    <h5>Enjoy universe here<span> ZENITH</span></h5>
+                </div>
+                <div class="ma-sub2-btn">
+                    <a href="./exploration.html">체험하러 가기</a>
+                </div>
+                
+                <div class="ma-sub1-pc">
+                    <div class="ma-cir-bg ma-cir-bg1">
+                        <h4>VR 체험</h4>
+                        <a href="./exploration.html">MORE</a>
+                        <p>가상세계에서 발밑에 지구가 있는 신비로운 유영을 느껴보세요</p>
+                    </div>
+                    <div class="ma-bigac ma-ac1"><div class="ma-smallac"></div></div>
+                    <div class="ma-cir-bg ma-cir-bg2">
+                        <h4>실제 훈련</h4>
+                        <a href="./exploration.html">MORE</a>
+                        <p>실제 우주비행사들의 훈련으로 광활한 우주를 경험해 보세요</p>
+                    </div>
+                    <div class="ma-bigac ma-ac2"><div class="ma-smallac"></div></div>
+                </div>
+
+                <div class="swiper mySwiper"><!--스와이퍼-->
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="ma-cir-bg ma-cir-bg1">
+                                <h4>VR 체험</h4>
+                                <a href="./exploration.html">MORE</a>
+                                <p>가상세계에서 발밑에 지구가 있는 신비로운 유영을 느껴보세요</p>
+                            </div>
+                            <div class="ma-bigac"><div class="ma-smallac"></div></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="ma-cir-bg ma-cir-bg2 ">
+                                <h4>실제 훈련</h4>
+                                <a href="./exploration.html">MORE</a>
+                                <p>실제 우주비행사들의 훈련으로 광활한 우주를 경험해 보세요</p>
+                            </div>
+                            <div class="ma-bigac"><div class="ma-smallac"></div></div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div><!--스와이퍼 끝-->
+            </div><!--감싸는 영역 끝-->
+    </section>
+	
+	<ul id="menu">
+		<li data-menuanchor="1st" ><a href="#1st" data-text="HOME">HOME</a></li>
+		<li data-menuanchor="2nd" ><a href="#2nd" data-text="관 측">관 측</a></li>
+		<li data-menuanchor="3rd" ><a href="#3rd" data-text="체 험">체 험</a></li>
+	</ul>
+
+</body>
+</html>
+<script src="./plugin/constellation/rAF.js"></script>
+<script src="./plugin/constellation/EasePack.min.js"></script>
+<script src="./plugin/constellation/TweenLite.min.js"></script>
+<script src="./plugin/constellation/constellation.js"></script>

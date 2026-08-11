@@ -1,0 +1,27 @@
+@charset "utf-8";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+@font-face {
+    font-family: 'SeabangGothic';
+    src: url('../fonts/contents/SEBANG-Gothic.eot');
+    src: url('../fonts/contents/SEBANG-Gothic.woff') format('woff');
+}
+
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'SeabangGothic', sans-serif; letter-spacing: -0.5px;
+    background: #999 url('../imgs/pattern.png'); overflow-x: hidden;
+}
+ul, ol { list-style: none; }
+a, img, input, label, button, textarea, select, option, i { display: block; outline: 0; }
+h1, h2 { font-family: "Gugi", sans-serif; font-weight: 400; }
+h3 {font-weight: 400;}
+a { text-decoration: none; color: #333; }
+
+@media screen and (min-width: 1200px) {
+    body { font-size: 15px; }
+}
+@media screen and (max-width: 1199px) {
+    body { font-size: 14px; }
+}

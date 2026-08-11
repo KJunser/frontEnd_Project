@@ -1,0 +1,391 @@
+@charset "utf-8";
+
+
+
+.ex-bn-bg {
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ===== Owl Carousel ===== */
+.owl-nav {
+    display: flex; justify-content: space-between;
+    margin-top: 20px; font-size: 42px;
+}
+.owl-dots {
+    display: flex; justify-content: center;
+    position: absolute; left: 50%; bottom: 20px;
+    color: #333;
+    transform: translateX(-50%);
+}
+.owl-dot span {
+    display: block; width: 10px; height: 10px; margin: 0 5px;
+    background: #fef5e7; border-radius: 50%;
+}
+.bi-chevron-left::before, .bi-chevron-right::before { color: #e9edfa; }
+
+
+
+/* ===== Life Of Astronaut (Common) ===== */
+.ex-la-container {
+    background: #333;
+    text-align: center;
+    border-radius: 10px;
+}
+.ex-la-container > p { color: #f6f6f6; }
+.ex-la-cd {
+    position: relative;
+    background: #ffeeda; border-radius: 20px; overflow: hidden; opacity: 0;
+    transform: translateY(50px);
+}
+.ex-la-cd1 { transition: all 0.8s ease-in-out; }
+.ex-la-cd2 { transition: all 0.8s ease-in-out 0.4s; }
+.ex-la-cd3 { transition: all 0.8s ease-in-out 0.8s; }
+.ani-show { opacity: 1 !important; transform: translateY(0) !important; }
+
+.ex-la-cd > a {
+    position: absolute; left: 50%;
+    color: #f6f6f6; border: 2px solid #f6f6f6; border-radius: 25px; z-index: 9;
+    transform: translateX(-50%); overflow: hidden;
+}
+.ex-la-cd > a::before {
+    content: ""; position: absolute;
+    top: 0; left: 0; bottom: 0; width: 0;
+    background: rgba(255, 255, 255, 0.4); 
+    z-index: -1; transition: width 0.4s ease-in-out;
+}
+.ex-la-cd > div {
+    position: absolute; left: 0; top: 0;
+    width: 100%; color: #f6f6f6;
+}
+.ex-la-cd > div::after {
+    content: ""; position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    opacity: 0; transition: opacity 1.2s ease-in-out; z-index: 2; 
+}
+
+.ex-la-cd > p { color: #333; }
+
+.ex-la-cd > a:hover ~ .ex-la-bg1::after,
+.ex-la-cd > a:hover ~ .ex-la-bg2::after,
+.ex-la-cd > a:hover ~ .ex-la-bg3::after { opacity: 1; }
+.ex-la-cd > a:hover::before { width: 100%; }
+
+h3 { font-family: "SeabangGothic", sans-serif; }
+
+
+
+/* ===== The Path To Space (Common) ===== */
+.ex-ps-container { display: flex; flex-direction: column; }
+.ex-ps-wrap { display: flex; }
+.ex-ps-bg-big, .ex-ps-bg-small { 
+    background-color: #ddd; background-position: center; background-size: cover; 
+}
+
+.ex-ps-cts {
+    position: relative; 
+    background:#fef5e7;
+    display: flex; flex-direction: column; justify-content: center;
+    align-items: center; text-align: center; box-sizing: border-box;
+}
+.ex-ps-cts h3 { position: relative; }
+.ex-ps-cts h3::after {
+    content: ""; position: absolute;
+    bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 20px; height: 2px;
+    background: #ea5449;
+}
+
+.ex-ps-cts a {
+    position: absolute; display: flex;
+    justify-content: center; align-items: center;
+    border: 2px solid #333; border-radius: 25px;
+    font-weight: 500; color: #333;
+    background: transparent; cursor: pointer;
+    z-index: 2; overflow: hidden;
+    transition: all 0.4s ease; 
+}
+.ex-ps-cts a:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
+
+.ex-ps-bg { opacity: 0; } 
+.ex-ps-bg-1, .ex-ps-bg-4 { transform: translateX(-50px); transition: all 0.8s ease-in-out; }
+.ex-ps-bg-2, .ex-ps-bg-3 { transform: translateX(50px); transition: all 0.8s ease-in-out 0.4s; }
+.event-show { opacity: 1; transform: translateX(0); }
+
+
+
+/* ===== The Rule In Space (Common) ===== */
+.ex-rs-container {
+    width: 100%; border-radius: 8px;
+}
+.ex-rs-wrap {
+    position: relative; margin: 0 auto; 
+    background: #fef5e7;
+    border-radius: 12px; box-sizing: border-box;
+    opacity: 0; transform: translateY(50px);
+}
+.ex-rs-wrap:nth-child(1) { transition: all 0.8s ease-in-out 0s; }
+.ex-rs-wrap:nth-child(2) { transition: all 0.8s ease-in-out 0.4s; }
+.ex-rs-wrap:nth-child(3) { transition: all 0.8s ease-in-out 0.8s; }
+
+.ex-rs-bg {
+    border-radius: 50%; margin: 0 auto;
+    background-size: cover; background-position: center;
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+.ex-rs-bg:hover { transform: scale(1.08); filter: brightness(1.25); }
+
+.ex-rs-cts {
+    position: absolute; left: 0;
+    width: 100%; text-align: center;
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+/* ===== FHD (1550px 이상) ===== */
+@media screen and (min-width: 1550px) {
+    .ex-bn-bg { background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/fhd-ep-bg-1.jpg'); }
+
+
+    /* Life Of Astronaut */
+    .ex-la-container { padding: 50px 50px 20px;  }
+    .ex-la-container > p { width: 510px; margin: 0 auto 50px;  line-height: 1.5; }
+    
+    .ex-la-cd { width: 430px; height: 600px; }
+    .ex-la-cd > a { top: 330px; padding: 15px 30px; }
+    .ex-la-cd > div { height: 470px; }
+    .ex-la-cd > p { width: 330px; padding-top: 510px; margin: 0 auto;  line-height: 1.5; }
+    
+    .ex-la-bg1 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/fhd-la-bg-1.jpg') center/cover no-repeat; }
+    .ex-la-bg2 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/fhd-la-bg-2.jpg') center/cover no-repeat; }
+    .ex-la-bg3 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/fhd-la-bg-3.jpg') center/cover no-repeat; }
+
+    .ex-la-bg1::after { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/fhd-la-bg-4.jpg') center/cover no-repeat; }
+    .ex-la-bg2::after { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/fhd-la-bg-5.jpg') center/cover no-repeat; }
+    .ex-la-bg3::after { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/fhd-la-bg-6.jpg') center/cover no-repeat; }
+
+    h3 { font-size: 36px; }
+    .ex-la-cd h3 { padding-top: 85px; }
+
+
+    /* The Path To Space */
+    .ex-ps-container { gap: 25px; }
+    .ex-ps-wrap { height: 460px; flex-direction: row; }
+    .ex-ps-bg-big { width: 780px; height: 460px; }
+    .ex-ps-bg-small { width: 180px; height: 460px;  }
+
+    .ex-ps-bg-1 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/fhd-ps-bg-1.jpg') center/cover no-repeat; }
+    .ex-ps-bg-2 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/fhd-ps-bg-2.jpg') center/cover no-repeat; }
+    .ex-ps-bg-3 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/fhd-ps-bg-3.jpg') center/cover no-repeat; }
+    .ex-ps-bg-4 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/fhd-ps-bg-4.jpg') center/cover no-repeat; }
+
+    .ex-ps-cts { width: 540px; height: 460px; padding: 48px 48px 100px; display: flex; }
+    .ex-ps-cts h3 { margin-bottom: 15px; padding-bottom: 15px; }
+    .ex-ps-cts p { margin-bottom: 30px; line-height: 1.5; }
+    .ex-ps-cts a { bottom: 85px; padding: 15px 30px; }
+
+
+    /* The Rule In Space */
+    .ex-rs-container { padding: 50px 50px 20px 50px; background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/fhd-rs-bn-1.jpg') center/cover no-repeat; }
+    .ex-rs-wrap { height: 575px; width: 430px; padding-top: 65px; }
+    
+    .ex-rs-bg { width: 300px; height: 300px; }
+    .ex-rs-cts { bottom: 65px; padding: 0 32px; }
+    .ex-rs-cts h3 { margin-top: 50px; }
+    .ex-rs-cts p { padding: 25px; line-height: 1.5; }
+
+    .ex-rs-bg-1 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/fhd-rs-bg-1.png') center/cover no-repeat; }
+    .ex-rs-bg-2 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/fhd-rs-bg-2.png') center/cover no-repeat; }
+    .ex-rs-bg-3 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/fhd-rs-bg-3.png') center/cover no-repeat; }
+}
+
+
+
+
+
+/* ===== HD (1200px ~ 1549px) ===== */
+@media screen and (min-width: 1200px) and (max-width: 1549px) {
+    .ex-bn-bg { background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/hd-ep-bg-1.jpg'); }
+
+
+
+    /* Life Of Astronaut */
+    .ex-la-container { padding: 40px 40px 20px;  }
+    .ex-la-container > p { width: 510px; padding: 10px 40px 0px 40px; margin: 0 auto 40px; line-height: 1.5; }
+
+    .ex-la-cd { width: 330px; height: 500px; }
+    .ex-la-cd > a { top: 280px; padding: 15px 30px; }
+    .ex-la-cd > div { height: 400px; }
+    .ex-la-cd > p { width: 300px; padding-top: 430px; margin: 0 auto;  line-height: 1.5; }
+
+    .ex-la-bg1 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url('../imgs/exp/hd-la-bg-1.jpg') center/cover no-repeat; }
+    .ex-la-bg2 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/hd-la-bg-2.jpg') center/cover no-repeat; }
+    .ex-la-bg3 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/hd-la-bg-3.jpg') center/cover no-repeat; }
+
+    .ex-la-bg1::after { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/hd-la-bg-4.jpg') center/cover no-repeat; }
+    .ex-la-bg2::after { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/hd-la-bg-5.jpg') center/cover no-repeat; }
+    .ex-la-bg3::after { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/hd-la-bg-6.jpg') center/cover no-repeat; }
+
+    h3 { font-size: 34px; }
+    .ex-la-cd h3 { padding-top: 70px; }
+
+
+
+    /* The Path To Space */
+    .ex-ps-container { gap: 20px; }
+    .ex-ps-wrap { height: 400px; flex-direction: row; }
+    .ex-ps-bg-big { width: 590px; height: 400px; }
+    .ex-ps-bg-small { width: 150px; height: 400px;  }
+
+    .ex-ps-bg-1 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/hd-ps-bg-1.jpg') center/cover no-repeat; }
+    .ex-ps-bg-2 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/hd-ps-bg-2.jpg') center/cover no-repeat; }
+    .ex-ps-bg-3 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/hd-ps-bg-3.jpg') center/cover no-repeat; }
+    .ex-ps-bg-4 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/hd-ps-bg-4.jpg') center/cover no-repeat; }
+
+    .ex-ps-cts { width: 410px; height: 400px; padding: 40px 25px 80px; display: flex; }
+    .ex-ps-cts h3 { padding-bottom: 20px; margin-bottom: 20px; }
+    .ex-ps-cts p { margin-bottom: 32px; line-height: 1.5; }
+    .ex-ps-cts a { bottom: 70px; padding: 15px 30px; }
+
+
+    
+    /* The Rule In Space */
+    .ex-rs-container { padding: 40px 40px 20px; background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/hd-rs-bn-1.jpg') center/cover no-repeat; }
+    .ex-rs-wrap { height: 500px; width: 330px; padding-top: 40px; }
+
+    .ex-rs-bg { width: 230px; height: 230px; }
+    .ex-rs-cts { bottom: 50px; padding: 0 25px; }
+    .ex-rs-cts h3 { margin-top: 40px; }
+    .ex-rs-cts p { padding: 25px; line-height: 1.5; }
+
+    .ex-rs-bg-1 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/hd-rs-bg-1.png') center/cover no-repeat; }
+    .ex-rs-bg-2 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/hd-rs-bg-2.png') center/cover no-repeat; }
+    .ex-rs-bg-3 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/hd-rs-bg-3.png') center/cover no-repeat; }
+}
+
+
+
+
+/* ===== TB (760px ~ 1199px) ===== */
+@media screen and (min-width: 760px) and (max-width: 1199px) {
+    .ex-bn-bg { background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/tb-ep-bg-1.jpg'); }
+
+
+
+    /* Life Of Astronaut */
+    .ex-la-container { padding: 5px 30px 20px;  }
+    .ex-la-container > p { width: 450px; margin: 30px auto;  line-height: 1.5;  }
+
+    .ex-la-cd { width: 325px; height: 500px; }
+    .ex-la-cd > a { top: 300px; padding: 15px 30px; }
+    .ex-la-cd > div { height: 400px; }
+    
+    
+    .ex-la-cd > p { padding: 435px 20px 0; }
+
+
+    .ex-la-bg1 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url('../imgs/exp/tb-la-bg-1.jpg') center/cover no-repeat; }
+    .ex-la-bg2 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/tb-la-bg-2.jpg') center/cover no-repeat; }
+    .ex-la-bg3 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/tb-la-bg-3.jpg') center/cover no-repeat; }
+
+    h3 { font-size: 32px; }
+    .ex-la-cd h3 { padding-top: 50px; }
+
+
+
+    /* The Path To Space */
+    .ex-ps-container { gap: 20px; }
+    .ex-ps-wrap { height: 355px; flex-direction: row; }
+    .ex-ps-bg-big { width: 370px; height: 355px; }
+    .ex-ps-bg-small { display: none; }
+
+    .ex-ps-bg-1 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/tb-ps-bg-1.jpg') center/cover no-repeat; }
+    .ex-ps-bg-2 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/tb-ps-bg-2.jpg') center/cover no-repeat; }
+
+    .ex-ps-cts { width: 370px; height: 355px; padding: 30px 30px 60px; display: flex; }
+    .ex-ps-cts h3 { margin-bottom: 20px; padding-bottom: 20px; }
+    .ex-ps-cts p { margin-bottom: 50px; line-height: 1.5; }
+    .ex-ps-cts a { bottom: 50px; padding: 15px 30px; }
+
+
+
+    /* The Rule In Space */
+    .ex-rs-container { padding: 40px 30px 20px; background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/tb-rs-bn-1.jpg') center/cover no-repeat; }
+    .ex-rs-wrap { height: 500px; width: 315px; padding-top: 40px; }
+
+    .ex-rs-bg { width: 230px; height: 230px; }
+    .ex-rs-cts { bottom: 50px; padding: 0 25px; }
+    .ex-rs-cts h3 { margin-top: 50px; }
+    .ex-rs-cts p { padding: 25px; line-height: 1.5; }
+
+    .ex-rs-bg-1 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/tb-rs-bg-1.png') center/cover no-repeat; }
+    .ex-rs-bg-2 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/tb-rs-bg-2.png') center/cover no-repeat; }
+    .ex-rs-bg-3 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/tb-rs-bg-3.png') center/cover no-repeat; }
+}
+
+
+
+
+
+/* ===== SM (759px 이하) ===== */
+@media screen and (max-width: 759px) {
+    .ex-bn-bg { background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/sm-ep-bg-1.jpg'); }
+
+
+
+    /* Life Of Astronaut */
+    .ex-la-container { width: 100%; padding: 0px 0 20px; background: none; }
+    .ex-la-container > p { width: 100%; padding: 10px 20px 25px; margin: 0;  line-height: 1.5; }
+    .ex-la-container p:nth-child(1) {width: 350px; margin: 0px; padding: 0px 40px 25px; display: none;}
+
+    .ex-la-cd { width: 100%; max-width: 350px; height: 500px; margin: 0 auto; }
+    .ex-la-cd > a { top: 280px; padding: 15px 30px; }
+    .ex-la-cd > div { height: 400px; }
+    .ex-la-cd > p { width: 90%; padding-top: 430px; margin: 0 auto;  line-height: 1.5; text-align: center; }
+
+    .ex-la-bg1 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url('../imgs/exp/sm-la-bg-1.jpg') center/cover no-repeat; }
+    .ex-la-bg2 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/sm-la-bg-2.jpg') center/cover no-repeat; }
+    .ex-la-bg3 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/sm-la-bg-3.jpg') center/cover no-repeat; }
+
+    .ex-la-bg1::after { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/sm-la-bg-4.jpg') center/cover no-repeat; }
+    .ex-la-bg2::after { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/sm-la-bg-5.jpg') center/cover no-repeat; }
+    .ex-la-bg3::after { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/sm-la-bg-6.jpg') center/cover no-repeat; }
+
+    h3 { font-size: 30px; }
+    .ex-la-cd h3 { padding-top: 70px; }
+
+
+
+    /* The Path To Space */
+    .ex-ps-container { gap: 0px; }
+    .ex-ps-wrap { height: auto; flex-direction: column; } 
+    
+    .ex-ps-bg-big { width: 100%; height: 350px; }
+    .ex-ps-bg-small { display: none; }
+
+    .ex-ps-cts { display: none; }
+
+    .ex-ps-bg-1 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/sm-ps-bg-1.jpg') center/cover no-repeat; }
+    .ex-ps-bg-2 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/sm-ps-bg-2.jpg') center/cover no-repeat; }
+
+
+
+    /* The Rule In Space */
+    .ex-rs-container { padding: 0; background: none; }
+    .ex-rs-wrap { height: 500px; width: 100%; max-width: 350px; padding-top: 30px; }
+    
+    .ex-rs-bg { width: 230px; height: 230px; }
+    .ex-rs-cts { bottom: 50px; padding: 0 25px; }
+    .ex-rs-cts h3 { margin-top: 40px; }
+    .ex-rs-cts p { padding: 25px; line-height: 1.5; }
+
+    .ex-rs-bg-1 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/sm-rs-bg-1.png') center/cover no-repeat; }
+    .ex-rs-bg-2 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/sm-rs-bg-2.png') center/cover no-repeat; }
+    .ex-rs-bg-3 { background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../imgs/exp/sm-rs-bg-3.png') center/cover no-repeat; }
+}
